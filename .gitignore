@@ -1,0 +1,6 @@
+.vscode
+./src/main.exe
+main.ps
+output.asm
+output.o
+output
