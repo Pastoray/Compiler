@@ -27,15 +27,15 @@ int main(int argc, char* argv[]) {
     std::vector<Token> tokens = tokenizer.tokenize();
 
     Parser parser(std::move(tokens));
-    std::optional<NodeStmtRet> tree = parser.parse();
+    std::optional<NodeProg> prog = parser.parse_prog();
 
-    if (!tree.has_value()) {
+    if (!prog.has_value()) {
         std::cerr << "No return statement found" << std::endl;
         exit(EXIT_FAILURE);
     };
 
-    Generator generator(tree.value());
-    std::string code = generator.generate();
+    Generator generator(prog.value());
+    std::string code = generator.gen_prog();
 
     {
         std::fstream file("../output.asm", std::ios::out);
