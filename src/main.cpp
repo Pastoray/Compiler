@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
         std::cerr << "Correct Usage : ./main.exe <input.ps>" << std::endl;
         return EXIT_FAILURE;
     }
-
+    
     std::string contents;
     {
         std::stringstream contents_stream;
